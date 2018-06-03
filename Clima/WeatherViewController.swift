@@ -79,6 +79,8 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
             weatherDataModel.city = json["name"].stringValue
             weatherDataModel.condition = json["weather"][0]["id"].intValue
             weatherDataModel.iconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
+            
+            updateUIWithWeatherData()
         } else {
             cityLabel.text = "Weather unavailable"
         }
@@ -89,7 +91,11 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     
     //MARK: - UI Updates
     /***************************************************************/
-    
+    func updateUIWithWeatherData() {
+        cityLabel.text = weatherDataModel.city
+        temperatureLabel.text = String(weatherDataModel.temperature)
+        weatherIcon.image = UIImage(named: weatherDataModel.iconName)
+    }
     
     //Write the updateUIWithWeatherData method here:
     
