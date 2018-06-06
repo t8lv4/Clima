@@ -21,7 +21,6 @@ class WeatherDataModel {
     func updateWeatherIcon(condition: Int) -> String {
         
     switch (condition) {
-    
         case 0...300 :
             return "tstorm1"
         
@@ -58,6 +57,6 @@ class WeatherDataModel {
         default :
             return "dunno"
         }
-
     }
+    
 }
